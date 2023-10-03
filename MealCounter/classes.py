@@ -1,6 +1,7 @@
 from MealCounter.functions import calorie_counter, price_counter
 import datetime
 import sys
+import argparse
 
 class Order:
     """
@@ -54,10 +55,3 @@ class Order:
     def price(self):
         return price_counter(self._items)
     
-
-order = Order(["sweet potatoes","vegan combo","cheesy combo"])
-#order.calories
-#print(order.calories)
-order.calories_check()
-print(order._order_id)
-print(order.price)
