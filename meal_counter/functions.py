@@ -7,8 +7,8 @@ def load_json(file_path):
     with open(file_path) as f:
         return json.load(f)
 
-meals = load_json("./MealCounter/data/meals.json")
-combos = load_json("./MealCounter/data/combos.json")
+meals = load_json("./meal_counter/data/meals.json")
+combos = load_json("./meal_counter/data/combos.json")
 
 meals_calories_dict = {}
 meals_prices_dict = {}
@@ -50,43 +50,29 @@ for combo in combos['combos']:
 
     combo_calories_dict[combo["name"]] = combo_calories
 
-
-# create price counter function, the argument is a list of meals 
-
-def price_counter(meal_list):
-    total_price = 0
+# create a counter function
+def general_counter(meal_list, dict_type):
+    total_value = 0
     
     for meal in meal_list:
-        # print(meal)
-        try:
-            if meal in meals_prices_dict:
-                meal_price = meals_prices_dict[meal]
-                total_price += meal_price
-            else:
-                combo_price = combo_price_dict[meal]
-                total_price += combo_price
-        except: 
+        if meal in dict_type:
+            total_value += dict_type[meal]
+        else: 
             raise KeyError(f"Cannot find the meal for {meal}")
-    return total_price
+    
+    return total_value
+
+# create price counter function, the argument is a list of meals 
+def price_counter(meal_list):
+    combined_price_dict = {**meals_prices_dict, **combo_price_dict}
+
+    return general_counter(meal_list, combined_price_dict)
 
 # create calorie counter function, the argument is a list of meals 
 def calorie_counter(meal_list):
-    total_calorie_counter = 0
-    
-    for meal in meal_list:
-        # print(meal)
-        # catch the error:
-        try:
-            if meal in meals_calories_dict:
-                meal_calories = meals_calories_dict[meal]
-                total_calorie_counter += meal_calories
-            else:
-                combo_calories = combo_calories_dict[meal]
-                total_calorie_counter += combo_calories
-        except: 
-            raise KeyError(f"Cannot find the meal for {meal}")
-        
-    return total_calorie_counter
+    combined_calories_dict = {**meals_calories_dict, **combo_calories_dict}
+
+    return general_counter(meal_list, combined_calories_dict)
 
 def main():
     parser = argparse.ArgumentParser()
