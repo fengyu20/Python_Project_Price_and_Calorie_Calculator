@@ -1,5 +1,6 @@
 import sys
 import json
+import argparse
 
 # load json files
 def load_json(file_path):
@@ -80,3 +81,20 @@ def calorie_counter(meal_list):
             raise KeyError(f"Cannot find the meal for {meal}")
         
     return total_calorie_counter
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-f', '--function', choices=['price_counter', 'calorie_counter'])
+    parser.add_argument('-m', '--meals', nargs='+')
+
+    args = parser.parse_args()
+
+    if args.function == 'price_counter':
+        total_price = price_counter(args.meals)
+        print(f'Total price: {total_price}')
+    elif args.function == 'calorie_counter':
+        total_calories = calorie_counter(args.meals)
+        print(f'Total calories: {total_calories} kcal')
+
+if __name__ == "__main__":
+    main()
