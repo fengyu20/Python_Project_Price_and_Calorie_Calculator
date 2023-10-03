@@ -1,3 +1,4 @@
+import sys
 import json
 
 # load json files
@@ -5,8 +6,8 @@ def load_json(file_path):
     with open(file_path) as f:
         return json.load(f)
 
-meals = load_json("data/meals.json")
-combos = load_json("data/combos.json")
+meals = load_json("./MealCounter/data/meals.json")
+combos = load_json("./MealCounter/data/combos.json")
 
 meals_calories_dict = {}
 meals_prices_dict = {}
