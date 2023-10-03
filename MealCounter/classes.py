@@ -1,4 +1,4 @@
-from MealCounter.functions import calorie_counter, price_counter
+from functions import calorie_counter, price_counter
 import datetime
 import sys
 import argparse

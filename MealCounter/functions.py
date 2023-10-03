@@ -24,15 +24,21 @@ for meal in meals['meals']:
     meals_prices_dict[meal_name] = meal_price
     meal_ids_dict[meal_id] = meal_name
 
+
 # create dics to track the combo dicts, including calories and prices
 combo_price_dict = {}
 combo_calories_dict = {}
+combo_ids_dict = {}
 
 for combo in combos['combos']:
     
     combo_meals = combo["meals"]
     combo_name = combo["name"]
+    combo_id = combo["id"]
+
+
     combo_price_dict[combo_name] = combo["price"]
+    combo_ids_dict[combo_id] = combo_name
 
     combo_calories = 0
 
