@@ -1,5 +1,5 @@
 import pytest
-from MealCounter.functions import *
+from meal_counter.functions import *
 
 meal_combo_list = ["sweet potatoes","vegan combo","cheesy combo"]
 meal_list = ["sweet potatoes", "veggie burger"]

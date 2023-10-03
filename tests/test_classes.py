@@ -1,8 +1,8 @@
 import sys
 import pytest
 import datetime
-from MealCounter.functions import *
-from MealCounter.classes import Order
+from meal_counter.functions import *
+from meal_counter.classes import Order
 
 
 meal_combo_list = ["sweet potatoes","vegan combo","cheesy combo"]
