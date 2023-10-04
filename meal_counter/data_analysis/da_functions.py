@@ -1,39 +1,51 @@
-from meal_counter.data_analysis.order_history import *
-import sys
-import matplotlib.pyplot as plt
-from meal_counter.functions import combo_ids_dict, meal_ids_dict, combo_price_dict, meals_prices_dict
+"""
+Contains functions dedicated to data analysis like calculating:
+- most ordered meals
+- most ordered combo
+- acombo or meal that brought the most money.
+"""
 
+import pandas as pd
+from meal_counter.functions import (
+    combo_ids_dict,
+    meal_ids_dict,
+    combo_price_dict,
+    meals_prices_dict
+)
 
 # read from the csv
 meal_counts = pd.read_csv('./meal_counter/data/meal_counts.csv')
 
-# print(meal_counts.head(10))
-
-# create a function that returns the most ordered thing
-def most_ordered(type):
-
-    for index, row in meal_counts.iterrows():
+def most_ordered(meal_type):
+    """
+    A function that returns the most ordered thing.
+    """
+    for _, row in meal_counts.iterrows():
         meal = row['items']
 
-        if type == "meal" and meal in meal_ids_dict.values():
+        if meal_type == "meal" and meal in meal_ids_dict.values():
             return meal
-        elif type == "combo" and meal in combo_ids_dict.values():
+        elif meal_type == "combo" and meal in combo_ids_dict.values():
             return meal
 
-# Most ordered meals
 def most_ordered_meal():
+    """
+    A function that returned most ordered meal
+    """
     return most_ordered("meal")
 
-# Most ordered combo
 def most_ordered_combo():
+    """
+    A function that returned most ordered combo
+    """
     return most_ordered("combo")
 
-# create a function that returns the combo or meal that brought the most money
 combined_prices = {**combo_price_dict, **meals_prices_dict}
-# print(combined_prices)
 
 def profitable_meal():
-
+    """
+    A function that returns the combo or meal that brought the most money
+    """
     # get the price from the dict
     meal_counts['prices'] = meal_counts['items'].map(lambda x: combined_prices.get(x, 0))
 
@@ -47,4 +59,3 @@ def profitable_meal():
     max_revenue_meal = meal_counts.loc[max_revenue_index, 'items']
 
     return max_revenue_meal
-

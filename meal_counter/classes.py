@@ -1,7 +1,9 @@
-from meal_counter.functions import calorie_counter, price_counter
+"""
+Contains Order Classes, covering the assignment `Basic7: Use OOP logic to handle orders`.
+"""
+
 import datetime
-import sys
-import argparse
+from meal_counter.functions import calorie_counter, price_counter
 
 class Order:
     """
@@ -27,31 +29,39 @@ class Order:
     """
     counter = 0
 
-    def __init__(self, items, date=None):
+    def __init__(self, items):
         Order.counter += 1
         self._order_id = str(Order.counter)
         self._order_accepted = False
         self._order_refused_reason = ""
-        self._date = datetime.datetime.now() 
+        self._date = datetime.datetime.now()
         self._items = items
         self.calories_check()
 
     def calories_check(self):
+        """
+        A function that checks should the store accept the order or not.
+        """
         try:
             total_calories = calorie_counter(self._items)
             if total_calories > 2000:
                 self._order_refused_reason = "Total calories exceeds 2000"
             else:
                 self._order_accepted = True
-        except KeyError as e:
-            self._order_refused_reason = str(e)
-            
+        except KeyError as error:
+            self._order_refused_reason = str(error)
 
     @property
     def calories(self):
+        """
+        Define a property by calling calorie_counter.
+        """
         return calorie_counter(self._items)
 
     @property
     def price(self):
+        """
+        Define a property by calling price_counter.
+        """
         return price_counter(self._items)
     
