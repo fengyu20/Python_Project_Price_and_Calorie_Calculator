@@ -3,9 +3,16 @@ import pandas as pd
 from meal_counter.classes import *
 
 def main():
-    # save the df to csv for future
+    # save the df to csv for creating plots
     order = create_order_df()
     order.to_csv('./meal_counter/data/order_df.csv', index=False) 
+
+    # create the seperate meal list
+    meal_list_df = order['items'].explode()
+    meal_counts = meal_list_df.value_counts().sort_values(ascending=False)
+
+    # save it to the csv for future use
+    meal_counts.to_csv('./meal_counter/data/meal_counts.csv', index=True) 
 
 # get the dataframe from the json file
 def create_order_df():
