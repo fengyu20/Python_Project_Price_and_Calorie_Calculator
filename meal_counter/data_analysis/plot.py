@@ -1,6 +1,5 @@
-from meal_counter.data_analysis.order_history import *
-import sys
 import matplotlib.pyplot as plt
+from meal_counter.data_analysis.order_history import *
 from meal_counter.functions import combo_ids_dict, meal_ids_dict
 
 
@@ -26,7 +25,6 @@ plt.xlabel('Date')
 plt.ylabel('Price')
 plt.legend()
 plt.show()  
-
 # create a plot to show "Average earnings by customer served per day"
 daily_order_counts = order_df.groupby(order_df['date']).size().reset_index(name='order_count')
 

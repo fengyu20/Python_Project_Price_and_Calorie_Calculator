@@ -1,11 +1,21 @@
-import sys
+"""
+Incorporates calorie and price counter functions, covering assignments such as 
+- `Basic1: Create a calorie counter function`
+- `Basic2: Handle combos`, `Basic3: Handle errors`
+- `Basic4: Use more complex data`
+- `Basic5: Create a price counter function`
+- `Basic6: Store your data in JSON files`.
+"""
+
 import json
 import argparse
 
-# load json files
 def load_json(file_path):
-    with open(file_path) as f:
-        return json.load(f)
+    """
+    A function that could load json files.
+    """
+    with open(file_path, encoding='utf-8') as json_file:
+        return json.load(json_file)
 
 meals = load_json("./meal_counter/data/meals.json")
 combos = load_json("./meal_counter/data/combos.json")
@@ -31,7 +41,6 @@ combo_calories_dict = {}
 combo_ids_dict = {}
 
 for combo in combos['combos']:
-    
     combo_meals = combo["meals"]
     combo_name = combo["name"]
     combo_id = combo["id"]
@@ -50,31 +59,40 @@ for combo in combos['combos']:
 
     combo_calories_dict[combo["name"]] = combo_calories
 
-# create a counter function
 def general_counter(meal_list, dict_type):
+    """
+    A general counter function.
+    """
     total_value = 0
-    
+
     for meal in meal_list:
         if meal in dict_type:
             total_value += dict_type[meal]
-        else: 
+        else:
             raise KeyError(f"Cannot find the meal for {meal}")
-    
+       
     return total_value
 
-# create price counter function, the argument is a list of meals 
 def price_counter(meal_list):
+    """
+    A price counter function, the argument is a list of meals 
+    """
     combined_price_dict = {**meals_prices_dict, **combo_price_dict}
 
     return general_counter(meal_list, combined_price_dict)
 
-# create calorie counter function, the argument is a list of meals 
 def calorie_counter(meal_list):
+    """
+    A calorie counter function, the argument is a list of meals.
+    """
     combined_calories_dict = {**meals_calories_dict, **combo_calories_dict}
 
     return general_counter(meal_list, combined_calories_dict)
 
 def main():
+    """
+    A function that allows user to interact with the function.
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', '--function', choices=['price_counter', 'calorie_counter'])
     parser.add_argument('-m', '--meals', nargs='+')
