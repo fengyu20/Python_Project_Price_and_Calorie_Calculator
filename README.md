@@ -10,7 +10,8 @@ It also could be used for stores to track the order, for example, reject the non
 2. Setup
 2.1 create the virtual environment
 2.2 install the dependencies
-In this repository, we use `pytest` to test c0de. You need to use `pip install pytest` to install it in advance.
+- In this repository, we use `pytest` to test c0de. You need to use `pip install pytest` to install it in advance.
+- In the 
 
 ## 3. Step by step guide:
 ### 3.1 Details about the code contained in the repository
