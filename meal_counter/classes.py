@@ -64,4 +64,32 @@ class Order:
         Define a property by calling price_counter.
         """
         return price_counter(self._items)
-    
+    def get_order_id(self):
+        """
+        Returns the order ID.
+        """
+        return self._order_id
+
+    def get_order_accepted(self):
+        """
+        Returns whether the order was accepted.
+        """
+        return self._order_accepted
+
+    def get_order_refused_reason(self):
+        """
+        If the order is refused, returns the reason the order was refused.
+        """
+        return self._order_refused_reason
+
+    def get_date(self):
+        """
+        Returns the date and time of the order.
+        """
+        return self._date
+
+    def get_items(self):
+        """
+        Returns the list of item IDs.
+        """
+        return self._items

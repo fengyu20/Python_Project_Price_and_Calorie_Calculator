@@ -18,7 +18,7 @@ meal_counts = pd.read_csv('./meal_counter/data/meal_counts.csv')
 
 def most_ordered(meal_type):
     """
-    A function that returns the most ordered thing.
+    A general function that returns the most ordered thing.
     """
     for _, row in meal_counts.iterrows():
         meal = row['items']
@@ -30,13 +30,13 @@ def most_ordered(meal_type):
 
 def most_ordered_meal():
     """
-    A function that returned most ordered meal
+    A function that returned most ordered meal.
     """
     return most_ordered("meal")
 
 def most_ordered_combo():
     """
-    A function that returned most ordered combo
+    A function that returned most ordered combo.
     """
     return most_ordered("combo")
 
@@ -44,7 +44,7 @@ combined_prices = {**combo_price_dict, **meals_prices_dict}
 
 def profitable_meal():
     """
-    A function that returns the combo or meal that brought the most money
+    A function that returns the combo or meal that is the most profitable one.
     """
     # get the price from the dict
     meal_counts['prices'] = meal_counts['items'].map(lambda x: combined_prices.get(x, 0))

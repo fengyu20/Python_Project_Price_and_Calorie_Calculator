@@ -28,7 +28,12 @@ meal_ids_dict = {}
 # including: calories, prices and the relationship between meal_id and name
 
 for meal in meals['meals']:
-    meal_name, meal_calories, meal_price, meal_id = meal["name"], meal["calories"], meal["price"], meal["id"]
+    meal_name, meal_calories, meal_price, meal_id = (
+        meal["name"],
+        meal["calories"],
+        meal["price"],
+        meal["id"]
+    )
 
     meals_calories_dict[meal_name] = meal_calories
     meals_prices_dict[meal_name] = meal_price
@@ -49,15 +54,15 @@ for combo in combos['combos']:
     combo_price_dict[combo_name] = combo["price"]
     combo_ids_dict[combo_id] = combo_name
 
-    combo_calories = 0
+    COMBO_CALORIES = 0
 
     for meal in combo_meals:
         if meal in meal_ids_dict:
             meal_name = meal_ids_dict[meal]
             meal_calorie = meals_calories_dict[meal_name]
-            combo_calories += meal_calorie
+            COMBO_CALORIES += meal_calorie
 
-    combo_calories_dict[combo["name"]] = combo_calories
+    combo_calories_dict[combo["name"]] = COMBO_CALORIES
 
 def general_counter(meal_list, dict_type):
     """
@@ -65,12 +70,11 @@ def general_counter(meal_list, dict_type):
     """
     total_value = 0
 
-    for meal in meal_list:
-        if meal in dict_type:
-            total_value += dict_type[meal]
+    for m in meal_list:
+        if m in dict_type:
+            total_value += dict_type[m]
         else:
-            raise KeyError(f"Cannot find the meal for {meal}")
-       
+            raise KeyError(f"Cannot find the meal for {m}")
     return total_value
 
 def price_counter(meal_list):
