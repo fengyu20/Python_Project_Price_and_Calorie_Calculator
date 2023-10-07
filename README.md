@@ -66,5 +66,5 @@ Use `git clone https://github.com/fengyu20/AIRE_Python.git` to clone the Reposit
 - **Note**: These test scripts include functions to handle normal and edge cases. Feel free to modify them to meet your needs.
 
 ## 5. Additional Info
-This repo respects PEP 8(covering the assignment `Advanced2: Respect PEP 8`.), after installing `pylint`, you can run `pylint **/*.py` in the root folder.
-The output should be `Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)`.
+- This repo respects PEP 8(covering the assignment `Advanced2: Respect PEP 8`.), after installing `pylint`, you can run `pylint **/*.py` in the root folder.
+- The output should be `Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)`.
