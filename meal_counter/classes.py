@@ -47,8 +47,7 @@ class Order:
             total_calories = calorie_counter(self._items)
             if total_calories > 2000:
                 raise MealTooBigError("Total calories exceeds 2000")
-            else:
-                self._order_accepted = True
+            self._order_accepted = True
         except MealTooBigError as big_meal_error:
             self._order_refused_reason = str(big_meal_error)
         except KeyError as not_found_error:

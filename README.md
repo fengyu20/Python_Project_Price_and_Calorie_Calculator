@@ -28,7 +28,6 @@ Use `git clone https://github.com/fengyu20/AIRE_Python.git` to clone the Reposit
         - `__init__.py`: Essential for importing functions from other files within the package.
         - `order_history.py`: Organizes data from JSON files and saves DataFrames to CSV for future use.
         - `da_functions.py`: Contains functions dedicated to data analysis like calculating most ordered meals, most ordered combo, and combo or meal that brought the most money.
-        - `plot.ipynb`: Contains functions for plotting data, including total calories per day, total earnings per day, and average earnings by customer served per day.
     - `__init__.py`: Essential for importing functions from other files within the package.
     - `classes.py`: Contains Order Classes, covering the assignment `Basic7: Use OOP logic to handle orders`.
     - `custom_exceptions.py`: Defines MealTooBigError, covering the assignment `Advanced4: Create exceptions`.
@@ -38,11 +37,17 @@ Use `git clone https://github.com/fengyu20/AIRE_Python.git` to clone the Reposit
     - `test_functions.py`: Functions to validate the effectiveness of the calorie counter and price counter functions.
     - `test_classes.py`: Functions to test the Class implementations.
     - `test_da_functions.py`: Functions to validate the data analysis functions.
+- `main.ipynb`: Contains all the functions.
 - `requirements.txt`: Dependencies that need to be installed, covering the assignment `Advanced1: Create a virtual environment and document your requirements`.
 - `README.md`: File that introduce this repo, covering the assignment `Advanced5: Add a README file`.
 
 ### 3.2 How to Use It
-- If you have a meal list and want to know the price or the calories:
+- If you want to interact with the whole project, navigate to the root folder and open `main.ipynb`. Execute the relevant code blocks to see the results, and feel free to modify them as needed.
+    - `1. Functions`: Utilize the calorie and price counter functions in this part.
+    - `2. Classes`: Submit the order to check their total price, total calories, and acceptance status etc.
+    - `3. Data Analysis`: Delve into the order data for a comprehensive understanding.
+    - `4. Plot`: Generate plots of total calories per day, total earnings per day, and average earnings by customer served per day.
+- If you have a meal list and want to know the price or the calories and want to interact with the command line:
     - Navigate to the root folder, and run the following command:
         - `python3 meal_counter/functions.py -f {function_name} -m "meal1" "meal2" ...`
         - `-f {function_name}`: Specify the function to use (price_counter or calorie_counter).
@@ -50,8 +55,6 @@ Use `git clone https://github.com/fengyu20/AIRE_Python.git` to clone the Reposit
     - **Example**:
         - `python3 meal_counter/functions.py -f price_counter -m "sweet potatoes" "vegan combo" "cheesy combo"`
         - The output should be `Total price: 24`
-- If you want to analyse the the order data, go to `data_analysis` folder and find `plot.ipynb`
-    - Click the relevant code block, and you can see the plots of "Total calories per day", "Total price per day", etc.
 
 ## 4. Test the Code: How to Run Tests
 - Ensure you are in the root folder. Run the following commands:
