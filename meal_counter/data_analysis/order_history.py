@@ -65,13 +65,12 @@ def get_order_attributes(row):
     """
     order = Order(items=row['items'])
     return pd.Series({
-        'order_id': order._order_id,
-        'order_accepted': order._order_accepted,
-        'order_refused_reason': order._order_refused_reason,
+        'order_id': order.get_order_id(),
+        'order_accepted': order.get_order_accepted(),
+        'order_refused_reason': order.get_order_refused_reason(),
         'calories': order.calories,
         'price': order.price
     })
-
 
 if __name__ == "__main__":
     main()

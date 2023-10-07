@@ -4,7 +4,6 @@ Contains functions dedicated to data analysis like calculating:
 - most ordered combo
 - acombo or meal that brought the most money.
 """
-
 import pandas as pd
 from meal_counter.functions import (
     combo_ids_dict,
@@ -59,3 +58,14 @@ def profitable_meal():
     max_revenue_meal = meal_counts.loc[max_revenue_index, 'items']
 
     return max_revenue_meal
+
+def main():
+    """
+    A function that let da_functions.py could be implemented seperately.
+    """
+    profitable_meal()
+    most_ordered_meal()
+    most_ordered_combo()
+
+if __name__ == "__main__":
+    main()

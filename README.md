@@ -50,7 +50,7 @@ Use `git clone https://github.com/fengyu20/AIRE_Python.git` to clone the Reposit
     - **Example**:
         - `python3 meal_counter/functions.py -f price_counter -m "sweet potatoes" "vegan combo" "cheesy combo"`
         - The output should be `Total price: 24`
-- - If you want to analyse the the order data, go to `data_analysis` folder and find `plot.ipynb`
+- If you want to analyse the the order data, go to `data_analysis` folder and find `plot.ipynb`
     - Click the relevant code block, and you can see the plots of "Total calories per day", "Total price per day", etc.
 
 ## 4. Test the Code: How to Run Tests
