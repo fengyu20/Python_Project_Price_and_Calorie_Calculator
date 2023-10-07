@@ -4,6 +4,7 @@ Contains Order Classes, covering the assignment `Basic7: Use OOP logic to handle
 
 import datetime
 from meal_counter.functions import calorie_counter, price_counter
+from meal_counter.custom_exceptions import MealTooBigError
 
 class Order:
     """
@@ -45,11 +46,13 @@ class Order:
         try:
             total_calories = calorie_counter(self._items)
             if total_calories > 2000:
-                self._order_refused_reason = "Total calories exceeds 2000"
+                raise MealTooBigError("Total calories exceeds 2000")
             else:
                 self._order_accepted = True
-        except KeyError as error:
-            self._order_refused_reason = str(error)
+        except MealTooBigError as big_meal_error:
+            self._order_refused_reason = str(big_meal_error)
+        except KeyError as not_found_error:
+            self._order_refused_reason = str(not_found_error)
 
     @property
     def calories(self):
