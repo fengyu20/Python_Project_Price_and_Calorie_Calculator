@@ -24,6 +24,11 @@ Use `git clone https://github.com/fengyu20/AIRE_Python.git` to clone the Reposit
 ### 3.1 Details About the Code Contained in the Repository
 - **meal_counter**: A directory used to store functions and data.
     - **data**: A directory containing the JSON files for meals, combos, and orders, and CSV files for DataFrame.
+        - `meals.json`: Contains all available meals along with their calorie counts and prices.
+        - `combos.json`: Contains pre-defined meal combinations.
+        - `orders_history.json`: Records the history of orders placed, including the date and items ordered.
+        - `order_df.csv`: A processed DataFrame derived from orders_history.json that organizes order information. This will be useful when drawing plots.
+        - `meal_counts.csv`: Records how many times each meal has been ordered, which would be useful for data analysis.
     - **data_analysis**: A directory including data analysis contents, covering the assignment `Advanced7: Use data analysis libraries`.
         - `__init__.py`: Essential for importing functions from other files within the package.
         - `order_history.py`: Organizes data from JSON files and saves DataFrames to CSV for future use.
@@ -32,7 +37,7 @@ Use `git clone https://github.com/fengyu20/AIRE_Python.git` to clone the Reposit
     - `classes.py`: Contains Order Classes, covering the assignment `Basic7: Use OOP logic to handle orders`.
     - `custom_exceptions.py`: Defines MealTooBigError, covering the assignment `Advanced4: Create exceptions`.
     - `functions.py`: Incorporates calorie and price counter functions, covering assignments such as `Basic1: Create a calorie counter function`, `Basic2: Handle combos`, `Basic3: Handle errors`, `Basic4: Use more complex data`, `Basic5: Create a price counter function`, `Basic6: Store your data in JSON files` and `Advanced3: Use a recursive function`.
-- **tests**: A directory dedicated to test scripts, vcvering assignments of `Advanced6: Add unit tests` but using `pytest` as it's more familiar for me.
+- **tests**: A directory dedicated to test scripts, covering assignments of `Advanced6: Add unit tests` but using `pytest` as it's more familiar for me.
     - `__init__.py`: Essential for importing functions from other files within the package.
     - `test_functions.py`: Functions to validate the effectiveness of the calorie counter and price counter functions.
     - `test_classes.py`: Functions to test the Class implementations.
