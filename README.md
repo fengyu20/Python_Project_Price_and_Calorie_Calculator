@@ -32,7 +32,7 @@ Use `git clone https://github.com/fengyu20/AIRE_Python.git` to clone the Reposit
     - `classes.py`: Contains Order Classes, covering the assignment `Basic7: Use OOP logic to handle orders`.
     - `custom_exceptions.py`: Defines MealTooBigError, covering the assignment `Advanced4: Create exceptions`.
     - `functions.py`: Incorporates calorie and price counter functions, covering assignments such as `Basic1: Create a calorie counter function`, `Basic2: Handle combos`, `Basic3: Handle errors`, `Basic4: Use more complex data`, `Basic5: Create a price counter function`, `Basic6: Store your data in JSON files` and `Advanced3: Use a recursive function`.
-- **tests**: A directory dedicated to test scripts and files, which include unit tests and fixtures. Covering assignments of `Advanced6: Add unit tests` but using `pytest` as it's more familiar for me.
+- **tests**: A directory dedicated to test scripts, vcvering assignments of `Advanced6: Add unit tests` but using `pytest` as it's more familiar for me.
     - `__init__.py`: Essential for importing functions from other files within the package.
     - `test_functions.py`: Functions to validate the effectiveness of the calorie counter and price counter functions.
     - `test_classes.py`: Functions to test the Class implementations.
@@ -42,11 +42,13 @@ Use `git clone https://github.com/fengyu20/AIRE_Python.git` to clone the Reposit
 - `README.md`: File that introduce this repo, covering the assignment `Advanced5: Add a README file`.
 
 ### 3.2 How to Use It
-- If you want to interact with the whole project, navigate to the root folder and open `main.ipynb`. Execute the relevant code blocks to see the results, and feel free to modify them as needed.
+- If you want to interact with the entire project, navigate to the root folder and open `main.ipynb`. Execute the relevant code blocks to see the results, and feel free to modify them as needed.
     - `1. Functions`: Utilize the calorie and price counter functions in this part.
     - `2. Classes`: Submit the order to check their total price, total calories, and acceptance status etc.
     - `3. Data Analysis`: Delve into the order data for a comprehensive understanding.
     - `4. Plot`: Generate plots of total calories per day, total earnings per day, and average earnings by customer served per day.
+    - `5. Run the Test Functions`: Ensure that the functions and classes work correctly.
+    - `6. Additional Info`: Verify whether the repository adheres to PEP8 standards or not.
 - If you have a meal list and want to know the price or the calories and want to interact with the command line:
     - Navigate to the root folder, and run the following command:
         - `python3 meal_counter/functions.py -f {function_name} -m "meal1" "meal2" ...`
