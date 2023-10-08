@@ -11,13 +11,13 @@ This repository helps users in calculating the price and calories of a meal list
 Use `git clone https://github.com/fengyu20/AIRE_Python.git` to clone the Repository.
 
 2. **Setup Environment**
+   - **Install Dependencies**:
+     - Dependencies are listed in `requirements.txt`. Install them using `pip install -r requirements.txt`.
    - **Create the Virtual Environment**:
      - If you haven't installed `virtualenv`, please run `pip install virtualenv` first.
      - Create the virtual environment using `virtualenv the_name_of_your_virtual_env`.
      - Activate the virtual environment using `source the_name_of_your_virtual_env/bin/activate`(For Mac Users).
      - To exit the virtual environment, use `deactivate`.
-   - **Install Dependencies**:
-     - Dependencies are listed in `requirements.txt`. Install them using `pip install -r requirements.txt`.
 
 ## 3. Step by Step Guide:
 
